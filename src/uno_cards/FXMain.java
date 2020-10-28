@@ -50,7 +50,7 @@ public class FXMain extends Application {
      */
     
     public static void main(String[] args) {
-        launch(args);
+        //launch(args);
         ArrayList<Card> hand = new ArrayList<Card>();
         Deck deck = new Deck(1, true, true);
         int numRed =0;
