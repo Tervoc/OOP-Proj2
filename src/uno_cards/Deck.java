@@ -45,4 +45,14 @@ public class Deck {
             System.out.println(deckCard.size());
             
         }   
+        public void shuffle(){//switches every card with a random card
+            for(int i=0; i<deckCard.size(); i++){
+                int swapLocation = (int) (Math.random() * deckCard.size());
+                Card tempCard1 = deckCard.get(swapLocation);
+                Card tempCard2 = deckCard.get(i);
+                deckCard.set(i, tempCard1);
+                deckCard.set(swapLocation, tempCard2);
+               
+            }
+        }
 }
