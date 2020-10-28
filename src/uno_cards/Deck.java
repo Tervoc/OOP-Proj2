@@ -58,8 +58,7 @@ public class Deck {
                         for(int v = 1; v < 10; v++ ) { 
                             Card newCard = new Card(c,v);
 
-                            deckCard.add(newCard);
-                            deckCard.add(newCard);
+                    deckCard.add(zeroCard);
 
                         }
                         if(isActionCards){
@@ -103,21 +102,23 @@ public class Deck {
                
             }
         }
-        public ArrayList<Card> draw(int numCards){
-            ArrayList<Card> hand = new ArrayList<Card>();
-            if(deckCard.size() < numCards){
-                for(int i=0; i<deckCard.size(); i++){
-                    hand.add(deckCard.get(0));
-                    deckCard.remove(0);
-                }
-            }
-            for(int i=0; i<numCards; i++){
+
+    public ArrayList<Card> draw(int numCards) {
+        ArrayList<Card> hand = new ArrayList<Card>();
+        if (deckCard.size() < numCards) {
+            for (int i = 0; i < deckCard.size(); i++) {
                 hand.add(deckCard.get(0));
-                deckCard.remove(0);   
+                deckCard.remove(0);
             }
-            return hand;
         }
-        public ArrayList<Card> getDeck(){
-            return deckCard;
+        for (int i = 0; i < numCards; i++) {
+            hand.add(deckCard.get(0));
+            deckCard.remove(0);
         }
+        return hand;
+    }
+
+    public ArrayList<Card> getDeck() {
+        return deckCard;
+    }
 }
