@@ -51,9 +51,12 @@ public class FXMain extends Application {
      */
     public static void main(String[] args) {
         //launch(args);
-        ArrayList<Card> hand = new ArrayList<Card>();
-        Deck deck = new Deck(1, true, true);
-        int numRed = 0;
+        Deck deck = new Deck(3, true, true);
+        Hand hand = new Hand(deck, 7);
+        hand.newHand(deck,7);
+        hand.sortHand();
+        deck.getDeck();
+        /*int numRed = 0;
         int numBlue = 0;
         int numGreen = 0;
         int numYellow = 0;
@@ -78,7 +81,7 @@ public class FXMain extends Application {
 
                 }
             }
-        }
+        }*/
     }
 
 }

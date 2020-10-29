@@ -11,7 +11,10 @@ public class UNO_Cards {
 
     /*public static void main(String[] args) {
         // TODO code application logic here
-        Deck deck = new Deck(3, true, true);
+        Deck deck = new Deck(3, true, false);
+        Hand hand = new Hand(deck, 7);
+        hand.newHand(deck,7);
+        deck.getDeck();
         
     }*/
  //bet   

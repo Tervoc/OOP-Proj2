@@ -113,14 +113,17 @@ public class Deck {
                 deckCard.remove(0);
             }
         }
-        for (int i = 0; i < numCards; i++) {
-            hand.add(deckCard.get(0));
-            deckCard.remove(0);
+        else {
+            for (int i = 0; i < numCards; i++) {
+                hand.add(deckCard.get(0));
+                deckCard.remove(0);
+            }
         }
         return hand;
     }
 
     public ArrayList<Card> getDeck() {
+        System.out.println(deckCard.size());
         return deckCard;
     }
 }
