@@ -13,6 +13,7 @@ import java.util.ArrayList;
  */
 public class Deck {
 //bet
+
     private ArrayList<Card> deckCard = new ArrayList<Card>();
 
     public Deck(int numDecks, boolean isShuffledTogether, boolean isActionCards) {
@@ -20,28 +21,21 @@ public class Deck {
             for (int i = 0; i < numDecks; i++) {
                 for (int c = 0; c < 4; c++) {
 
-                    Card zeroCard = new Card(c, 0);
+                    Card zeroCard = new Card(c, 0, Card.CardTypes.break_);
                     deckCard.add(zeroCard);
 
                     for (int v = 1; v < 10; v++) {
-                        Card newCard = new Card(c, v);
-
+                        Card newCard = new Card(c, v, Card.CardTypes.normal);
                         deckCard.add(newCard);
                         deckCard.add(newCard);
                     }
-
                     if (isActionCards) {
-                        for (int x = 10; x < 13; x++) {
-                            Card actionCard = new Card(c, x);
-                            deckCard.add(actionCard);
-                            deckCard.add(actionCard);
+                        deckCard.add(new Card(c, 10, Card.CardTypes.skip));
+                        deckCard.add(new Card(c, 11, Card.CardTypes.draw2));
+                        deckCard.add(new Card(c, 12, Card.CardTypes.reverse));
 
-                        }
-                        Card wildCard = new Card(4, 13);
-                        Card wildDraw = new Card(4, 14);
-
-                        deckCard.add(wildCard);
-                        deckCard.add(wildDraw);
+                        deckCard.add(new Card(4, 13, Card.CardTypes.wild));
+                        deckCard.add(new Card(4, 14, Card.CardTypes.wild4));
                     }
                 }
             }
@@ -52,28 +46,23 @@ public class Deck {
             ArrayList<Card> tempDeck = new ArrayList<Card>();
             for (int i = 0; i < numDecks; i++) {
                 for (int c = 0; c < 4; c++) {
-                    Card zeroCard = new Card(c, 0);
+                    Card zeroCard = new Card(c, 0, Card.CardTypes.break_);
                     deckCard.add(zeroCard);
 
                     for (int v = 1; v < 10; v++) {
-                        Card newCard = new Card(c, v);
+                        Card newCard = new Card(c, v, Card.CardTypes.normal);
 
                         deckCard.add(newCard);
                         deckCard.add(newCard);
 
                     }
                     if (isActionCards) {
-                        for (int x = 10; x < 13; x++) {
-                            Card actionCard = new Card(c, x);
-                            deckCard.add(actionCard);
-                            deckCard.add(actionCard);
+                        deckCard.add(new Card(c, 10, Card.CardTypes.skip));
+                        deckCard.add(new Card(c, 11, Card.CardTypes.draw2));
+                        deckCard.add(new Card(c, 12, Card.CardTypes.reverse));
 
-                        }
-                        Card wildCard = new Card(4, 13);
-                        Card wildDraw = new Card(4, 14);
-
-                        deckCard.add(wildCard);
-                        deckCard.add(wildDraw);
+                        deckCard.add(new Card(4, 13, Card.CardTypes.wild));
+                        deckCard.add(new Card(4, 14, Card.CardTypes.wild4));
                     }
                 }
                 this.shuffle();
@@ -112,14 +101,16 @@ public class Deck {
                 hand.add(deckCard.get(0));
                 deckCard.remove(0);
             }
-        }
-        else {
+        } else {
             for (int i = 0; i < numCards; i++) {
                 hand.add(deckCard.get(0));
                 deckCard.remove(0);
             }
         }
         return hand;
+    }
+    public void returnCardToBottom(Card card){
+        deckCard.add(card);
     }
 
     public ArrayList<Card> getDeck() {
