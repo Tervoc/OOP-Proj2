@@ -5,15 +5,16 @@
  */
 package uno_cards;
 
+import java.io.IOException;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
-import java.util.ArrayList;
 
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+
+import java.util.ArrayList;
 /**
  *
  * @author Troll
@@ -21,25 +22,14 @@ import java.util.ArrayList;
 public class FXMain extends Application {
 
     @Override
-    public void start(Stage primaryStage) {
-        Button btn = new Button();
-        btn.setText("Say 'Hello World'");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Hello World!");
-            }
-        });
-
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
-
-        Scene scene = new Scene(root, 300, 250);
-
-        primaryStage.setTitle("Hello World!");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+    public void start(Stage stage) throws IOException {
+       
+         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+       // TextArea Output = new TextArea();
+        Scene scene = new Scene(root);
+        
+        stage.setScene(scene);
+        stage.show();
     }
 
     public enum cardColors {
@@ -50,12 +40,9 @@ public class FXMain extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //launch(args);
+        launch(args);
         Deck deck = new Deck(3, true, true);
         Hand hand = new Hand(deck, 7);
-        hand.newHand(deck,7);
-        hand.sortHand();
-        deck.getDeck();
         /*int numRed = 0;
         int numBlue = 0;
         int numGreen = 0;

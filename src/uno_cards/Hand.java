@@ -20,6 +20,8 @@ public class Hand {
         
     }
     
+    
+    
     public void newHand(Deck deckIn, int numCards){
         playerHand.clear();
         playerHand.addAll(deckIn.draw(numCards));
@@ -61,5 +63,9 @@ public class Hand {
         }
         System.out.println(playerHand.size());
         
+    }
+    
+    public ArrayList<Card> getHand(){
+        return playerHand;
     }
 }
