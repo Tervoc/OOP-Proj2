@@ -45,22 +45,27 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void handleEnterSettings(ActionEvent event) {
-        boolean areDecksShuffledTogether = areDecksShuffledTogetherEnabled.isSelected();
-        boolean areWildCards = areWildCardsEnabled.isSelected();
-        int numberOfDecks = 0;
-        System.out.println(numDecks.getValue());
-        if (numDecks.getValue().equals("1 Deck")) {
-            numberOfDecks = 1;
-        } else if (numDecks.getValue().equals("2 Decks")) {
-            numberOfDecks = 2;
-        } else if (numDecks.getValue().equals("3 Decks")) {
-            numberOfDecks = 3;
-        }
-        System.out.println("NumDecks: " + numberOfDecks);
-        deck = new Deck(numberOfDecks, areDecksShuffledTogether, areWildCards);
+        if(!areSettingsSet){
+            boolean areDecksShuffledTogether = areDecksShuffledTogetherEnabled.isSelected();
+            boolean areWildCards = areWildCardsEnabled.isSelected();
+            int numberOfDecks = 0;
+            System.out.println(numDecks.getValue());
+            if (numDecks.getValue().equals("1 Deck")) {
+                numberOfDecks = 1;
+            } else if (numDecks.getValue().equals("2 Decks")) {
+                numberOfDecks = 2;
+            } else if (numDecks.getValue().equals("3 Decks")) {
+                numberOfDecks = 3;
+            }
+            System.out.println("NumDecks: " + numberOfDecks);
+            deck = new Deck(numberOfDecks, areDecksShuffledTogether, areWildCards);
 
-        hand = new Hand(deck, 0);
-        areSettingsSet = true;
+            hand = new Hand(deck, 0);
+            statsText.setText("");
+           handText.setText("");
+            areSettingsSet = true;
+        }
+        
     }
 
     @FXML
@@ -87,6 +92,7 @@ public class FXMLDocumentController implements Initializable {
                     + "Yellow:\t " + hand.getNumYellowTotal() + "\n"
                     + "Blue:\t\t " + hand.getNumBlueTotal() + "\n"
                     + "Green:\t " + hand.getNumGreenTotal() + "\n"
+                    + "Cards Left:\t" + deck.getDeck().size() + "\n"
                     + "----------------------------\n"
                     + "|         This Hand        |\n"
                     + "----------------------------\n"
@@ -96,6 +102,11 @@ public class FXMLDocumentController implements Initializable {
                     + "Green:\t " + hand.getNumGreen() + "\n";
             statsText.setText(statsString);
 
+        }
+        if(deck.getDeck().size() == 0){
+             handText.setText("");
+            areSettingsSet = false;
+           
         }
     }
 

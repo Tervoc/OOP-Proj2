@@ -15,6 +15,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 
 import java.util.ArrayList;
+import javafx.scene.image.Image;
+
 
 /**
  *
@@ -28,7 +30,8 @@ public class FXMain extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
         // TextArea Output = new TextArea();
         Scene scene = new Scene(root);
-
+        stage.setTitle("Uno Workout");
+        stage.getIcons().add(new Image(FXMain.class.getResourceAsStream("uno.png")));
         stage.setScene(scene);
         stage.show();
     }

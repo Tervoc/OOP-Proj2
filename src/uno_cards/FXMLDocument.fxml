@@ -7,28 +7,35 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.Blend?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="347.0" prefWidth="572.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="uno_cards.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="299.0" prefWidth="572.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uno_cards.FXMLDocumentController">
     <children>
-        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
-      <CheckBox fx:id="areWildCardsEnabled" layoutX="29.0" layoutY="94.0" mnemonicParsing="false" text="Use Wild Cards" />
-      <Button fx:id="drawNewHand" layoutX="336.0" layoutY="290.0" mnemonicParsing="false" onAction="#handleDrawNewHand" text="Draw New Hand" />
-      <TextArea fx:id="handText" layoutX="229.0" layoutY="50.0" prefHeight="202.0" prefWidth="144.0" />
-      <ChoiceBox fx:id="numDecks" layoutX="29.0" layoutY="138.0" prefWidth="150.0" value="1 Deck">
+        <CheckBox fx:id="areWildCardsEnabled" layoutX="29.0" layoutY="74.0" mnemonicParsing="false" text="Use Wild Cards" />
+        <Button fx:id="drawNewHand" layoutX="336.0" layoutY="245.0" mnemonicParsing="false" onAction="#handleDrawNewHand" text="Draw New Hand" />
+        <TextArea fx:id="handText" editable="false" layoutX="229.0" layoutY="50.0" prefHeight="180.0" prefWidth="144.0">
+         <effect>
+            <Blend />
+         </effect></TextArea>
+        <ChoiceBox fx:id="numDecks" layoutX="29.0" layoutY="103.0" prefWidth="150.0" value="1 Deck">
             <items>
-              <FXCollections fx:factory="observableArrayList">
-                  <String fx:value="1 Deck" />
-                  <String fx:value="2 Decks" />
-                  <String fx:value="3 Decks" />
-              </FXCollections>
-          </items>
-      </ChoiceBox>
-      <CheckBox fx:id="areDecksShuffledTogetherEnabled" layoutX="29.0" layoutY="49.0" mnemonicParsing="false" text="Shuffle Decks Together" />
-      <Button fx:id="enterSettings" layoutX="35.0" layoutY="277.0" mnemonicParsing="false" onAction="#handleEnterSettings" text="Enter Settings" />
-      <Label layoutX="287.0" layoutY="30.0" text="Hand" />
-      <TextArea fx:id="statsText" layoutX="380.0" layoutY="51.0" prefHeight="200.0" prefWidth="159.0" />
-      <Label layoutX="447.0" layoutY="30.0" text="Stats" />
-      <Label layoutX="258.0" layoutY="269.0" text="you must enter settings before a hand can be drawn" />
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="1 Deck" />
+                    <String fx:value="2 Decks" />
+                    <String fx:value="3 Decks" />
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+        <CheckBox fx:id="areDecksShuffledTogetherEnabled" layoutX="29.0" layoutY="47.0" mnemonicParsing="false" text="Shuffle Decks Together" />
+        <Button fx:id="enterSettings" layoutX="35.0" layoutY="245.0" mnemonicParsing="false" onAction="#handleEnterSettings" text="Enter Settings" />
+        <Label layoutX="287.0" layoutY="30.0" text="Hand" />
+        <TextArea fx:id="statsText" editable="false" layoutX="380.0" layoutY="51.0" prefHeight="180.0" prefWidth="159.0" />
+        <Label layoutX="447.0" layoutY="30.0" text="Stats" />
+        <Label layoutX="29.0" layoutY="130.0" prefHeight="47.0" prefWidth="188.0" text="You must enter settings before a hand can be drawn" wrapText="true" />
+      <Label layoutX="26.0" layoutY="180.0" prefHeight="57.0" prefWidth="188.0" text="Press Enter Settings again to start a new workout once You are out of cards" wrapText="true" />
     </children>
+   <effect>
+      <Blend />
+   </effect>
 </AnchorPane>
