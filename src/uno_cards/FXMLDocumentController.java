@@ -18,40 +18,82 @@ import javafx.scene.control.*;
  * @author Troll
  */
 public class FXMLDocumentController implements Initializable {
-    @FXML
-    private Label label;
     
     @FXML
-    private TextArea Output;
+    private TextArea handText;
     
     @FXML
-    private TextArea Input;
+    private TextArea statsText;
+    
     
     @FXML 
     private ResourceBundle resources;
     
     @FXML
-    private ToggleGroup numDecks;
+    private CheckBox areWildCardsEnabled;
+    @FXML 
+    private CheckBox areDecksShuffledTogetherEnabled;
     
-    Deck deck = new Deck(3, true, true);
-    Hand hand = new Hand(deck, 7);
+    @FXML
+    private ChoiceBox numDecks;
+    
+    Deck deck;
+    Hand hand;
+    boolean areSettingsSet = false;
     
     public FXMLDocumentController(){
         
     }
+     @FXML
+    private void handleEnterSettings(ActionEvent event) {
+        boolean areDecksShuffledTogether = areDecksShuffledTogetherEnabled.isSelected();
+        boolean areWildCards = areWildCardsEnabled.isSelected();
+        int numberOfDecks = 0;
+        System.out.println(numDecks.getValue());
+        if(numDecks.getValue().equals( "1 Deck")){
+            numberOfDecks = 1;
+        }else if(numDecks.getValue().equals( "2 Decks")){
+            numberOfDecks = 2;
+        }else if(numDecks.getValue().equals("3 Decks")){
+            numberOfDecks = 3;
+        }
+        System.out.println("NumDecks: " + numberOfDecks);
+        deck = new Deck(numberOfDecks, areDecksShuffledTogether, areWildCards);
+        
+        hand = new Hand(deck, 0);
+        areSettingsSet = true;
+    }
     
     @FXML
-    private void handleButtonAction(ActionEvent event) {
-        
-        hand.newHand(deck,7);
-        hand.sortHand();
-        int handSize = hand.getHand().size();
-        deck.getDeck();
-        String handString = "";
-        for(int i=0; i< handSize; i++){
-            handString += hand.getHand().get(i).getCardColor() + ", " + hand.getHand().get(i).getCardValue() + " \n";
+    private void handleDrawNewHand(ActionEvent event) {
+        if(areSettingsSet){ 
+            hand.newHand(deck,7);
+            hand.sortHand();
+            int handSize = hand.getHand().size();
+            String handString = "";
+            String statsString = "";
+            for(int i=0; i< handSize; i++){
+                handString += hand.getHand().get(i).getCardColorAsText() + ", " + hand.getHand().get(i).getCardValue() + " \n";
+            }
+            handText.setText(handString);
+            
+            statsString = "Running Total\n" + 
+                          "-------------\n" +
+                          "Red:\t " + hand.getNumRedTotal() + "\n" +
+                          "Yellow:\t " + hand.getNumYellowTotal() + "\n" +
+                          "Blue:\t " + hand.getNumBlueTotal() + "\n" +
+                          "Green:\t " + hand.getNumGreenTotal() + "\n" +
+                          "-------------\n" +
+                          "This Hand \n" +
+                          "-------------\n" +
+                          "Red:\t " + hand.getNumRed() + "\n" +
+                          "Yellow:\t " + hand.getNumYellow() + "\n" +
+                          "Blue:\t " + hand.getNumBlue() + "\n" +
+                          "Green:\t " + hand.getNumGreen() + "\n";
+            statsText.setText(statsString);
+            
+                                    
         }
-        Output.setText(handString);
     }
     
     @Override

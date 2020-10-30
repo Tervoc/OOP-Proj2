@@ -23,6 +23,20 @@ public class Card {
         this.cardColor = cardColorIn;
         this.cardValue = cardValueIn;
     }
+    
+    public String getCardColorAsText(){
+        switch (this.cardColor) {
+                    case 0:
+                        return "Red";  
+                    case 1:
+                        return "Yellow";
+                    case 2:
+                        return "Blue";
+                    case 3:
+                        return "Green";
+                }
+        return "";
+    }
 
     public int getCardColor() {
         return this.cardColor;
