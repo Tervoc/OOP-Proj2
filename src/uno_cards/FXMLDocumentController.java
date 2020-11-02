@@ -13,7 +13,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 /**
- *
+ * This class connects to the FXMLDocument adding event handlers and stuff
+ * 
  * @author Troll
  */
 public class FXMLDocumentController implements Initializable {
@@ -39,6 +40,9 @@ public class FXMLDocumentController implements Initializable {
     Hand hand;
     boolean areSettingsSet = false;
 
+    /**
+     *
+     */
     public FXMLDocumentController() {
 
     }

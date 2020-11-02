@@ -8,11 +8,11 @@ package uno_cards;
 import java.util.ArrayList;
 
 /**
- *
- * @author chris
+ 8This class represents a hand which inherits deck and adds functions for sorting
+ * @author andrew
  */
 public class Hand {
-
+    
     private ArrayList<Card> playerHand = new ArrayList<Card>();
     private int numRed;
     private int numBlue;

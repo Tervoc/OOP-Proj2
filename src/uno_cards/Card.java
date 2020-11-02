@@ -4,11 +4,9 @@
  * and open the template in the editor.
  */
 package uno_cards;
-//bet
-
 /**
- *
- * @author chris
+ *this clas representrs a single card which holds a valuefor color, number, and type
+ * @author andrew
  */
 public class Card {
 
@@ -26,6 +24,10 @@ public class Card {
         this.cardValue = cardValueIn;
         this.cardType = cardTypeIn;
     }
+    /**
+     * This returns the coloor as a string
+     * @return 
+     */
 
     public String getCardColorAsText() {
         switch (this.cardColor) {
@@ -42,7 +44,10 @@ public class Card {
         }
         return "";
     }
-
+    /**
+     * Returns the type as a string
+     * @return 
+     */
     public String getCardTypeAsText() {
         switch (this.cardType) {
             case break_:

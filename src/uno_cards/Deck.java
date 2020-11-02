@@ -16,6 +16,12 @@ public class Deck {
 
     private ArrayList<Card> deckCard = new ArrayList<Card>();
 
+    /**
+     *
+     * @param numDecks
+     * @param isShuffledTogether
+     * @param isActionCards
+     */
     public Deck(int numDecks, boolean isShuffledTogether, boolean isActionCards) {
         if (isShuffledTogether) {
             for (int i = 0; i < numDecks; i++) {
@@ -82,6 +88,9 @@ public class Deck {
 
     }
 
+    /**
+     *
+     */
     public void shuffle() {
         //switches every card with a random card
         for (int i = 0; i < deckCard.size(); i++) {
@@ -94,6 +103,11 @@ public class Deck {
         }
     }
 
+    /**
+     *
+     * @param numCards
+     * @return
+     */
     public ArrayList<Card> draw(int numCards) {
         ArrayList<Card> hand = new ArrayList<Card>();
         if (deckCard.size() < numCards) {
@@ -109,10 +123,19 @@ public class Deck {
         }
         return hand;
     }
+
+    /**
+     *
+     * @param card
+     */
     public void returnCardToBottom(Card card){
         deckCard.add(card);
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<Card> getDeck() {
         System.out.println(deckCard.size());
         return deckCard;
