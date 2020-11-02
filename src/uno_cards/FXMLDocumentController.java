@@ -49,11 +49,11 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void handleEnterSettings(ActionEvent event) {
-        if(!areSettingsSet){
+        if(!areSettingsSet){//ensures that the user doesnt reset the game in the middle of a game 
             boolean areDecksShuffledTogether = areDecksShuffledTogetherEnabled.isSelected();
             boolean areWildCards = areWildCardsEnabled.isSelected();
             int numberOfDecks = 0;
-            System.out.println(numDecks.getValue());
+            System.out.println(numDecks.getValue());//this section checks the value of the choice box
             if (numDecks.getValue().equals("1 Deck")) {
                 numberOfDecks = 1;
             } else if (numDecks.getValue().equals("2 Decks")) {
@@ -65,7 +65,7 @@ public class FXMLDocumentController implements Initializable {
             deck = new Deck(numberOfDecks, areDecksShuffledTogether, areWildCards);
 
             hand = new Hand(deck, 0);
-            statsText.setText("");
+            statsText.setText(""); //resets the text feilds
            handText.setText("");
             areSettingsSet = true;
         }
@@ -109,7 +109,7 @@ public class FXMLDocumentController implements Initializable {
         }
         if(deck.getDeck().size() == 0){
              handText.setText("");
-            areSettingsSet = false;
+             areSettingsSet = false; //allows the user ti be able to reset the game once done
            
         }
     }

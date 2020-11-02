@@ -15,19 +15,19 @@ import static org.junit.Assert.*;
  * @author Troll
  */
 public class CardTest {
-    private Card instance;
+    //private Card instance;
     public CardTest() {
     }
     
     @Before
     public void setUp() {
         System.out.println("* CardTest: Before setup");
-        instance = new Card(0, 1, Card.CardTypes.normal);
+        //Card instance = new Card(0, 1, Card.CardTypes.normal);
     }
     
     @After
     public void tearDown() {
-        instance = null;
+       // instance = null;
     }
 
     /**
@@ -36,7 +36,7 @@ public class CardTest {
     @Test
     public void testGetCardColorAsText() {
         System.out.println("getCardColorAsText");
-       // Card instance = null;
+        Card instance = new Card(0, 1, Card.CardTypes.normal);
         String expResult = "Red";
         String result = instance.getCardColorAsText();
         assertEquals(expResult, result);
@@ -50,7 +50,7 @@ public class CardTest {
     @Test
     public void testGetCardTypeAsText() {
         System.out.println("getCardTypeAsText");
-       // Card instance = null;
+       Card instance = new Card(0, 1, Card.CardTypes.normal);
         String expResult = "normal";
         String result = instance.getCardTypeAsText();
         assertEquals(expResult, result);
@@ -64,7 +64,7 @@ public class CardTest {
     @Test
     public void testGetCardColor() {
         System.out.println("getCardColor");
-       // Card instance = null;
+       Card instance = new Card(0, 1, Card.CardTypes.normal);
         int expResult = 0;
         int result = instance.getCardColor();
         assertEquals(expResult, result);
@@ -78,7 +78,7 @@ public class CardTest {
     @Test
     public void testGetCardValue() {
         System.out.println("getCardValue");
-       // Card instance = null;
+      Card instance = new Card(0, 1, Card.CardTypes.normal);
         int expResult = 1;
         int result = instance.getCardValue();
         assertEquals(expResult, result);
@@ -92,7 +92,7 @@ public class CardTest {
     @Test
     public void testGetCardType() {
         System.out.println("getCardType");
-      //  Card instance = null;
+      Card instance = new Card(0, 1, Card.CardTypes.normal);
         Card.CardTypes expResult = Card.CardTypes.normal;
         Card.CardTypes result = instance.getCardType();
         assertEquals(expResult, result);
