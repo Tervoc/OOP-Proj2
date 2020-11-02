@@ -1,11 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This file includes the Card class and its intrinsic functions 
  */
 package uno_cards;
 /**
- *this clas representrs a single card which holds a valuefor color, number, and type
+ *this class represents a single card which holds a value for color, number, and type
  * @author andrew
  */
 public class Card {
@@ -25,7 +23,7 @@ public class Card {
         this.cardType = cardTypeIn;
     }
     /**
-     * This returns the coloor as a string
+     * This returns the color as a string
      * @return 
      */
 
@@ -45,8 +43,9 @@ public class Card {
         return "";
     }
     /**
-     * Returns the type as a string
+     * Returns the type as a string 
      * @return 
+     * @author andrew
      */
     public String getCardTypeAsText() {
         switch (this.cardType) {

@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * this file includes the hand class and its intrinsic functions 
  */
 package uno_cards;
 
@@ -134,6 +132,12 @@ public class Hand {
 
     }
 
+    /**
+     * This function uses a double bubble sort to first sort cards by color then sort cards rank
+     * 
+     * @author christian 
+     */
+    
     public void sortHand() {
         ArrayList<Card> temp = new ArrayList<Card>();
         temp.addAll(playerHand);

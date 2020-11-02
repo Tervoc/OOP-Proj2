@@ -1,15 +1,13 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * this file includes the deck class and its intrinsic functions 
  */
 package uno_cards;
 
 import java.util.ArrayList;
 
 /**
- *
- * @author chris
+ * This deck class creates a deck of card objects and has many different functions to manipulate it  
+ * @author christian 
  */
 public class Deck {
 //bet
@@ -17,10 +15,13 @@ public class Deck {
     private ArrayList<Card> deckCard = new ArrayList<Card>();
 
     /**
-     *
+     * This constructor passes in parameters to determine the number of decks, 
+     * if the decks are shuffled together, and if action cards should be included.
      * @param numDecks
      * @param isShuffledTogether
      * @param isActionCards
+     * 
+     * @author christian 
      */
     public Deck(int numDecks, boolean isShuffledTogether, boolean isActionCards) {
         if (isShuffledTogether) {
@@ -89,7 +90,8 @@ public class Deck {
     }
 
     /**
-     *
+     *this shuffle function is intrinsic to a deck object and will randomly swap each card in the deck at least once 
+     * @author christian 
      */
     public void shuffle() {
         //switches every card with a random card
@@ -104,9 +106,12 @@ public class Deck {
     }
 
     /**
-     *
+     * This draw function passes in a parameter for the number of cards to be drawn, and will return an ArrayList of card
+     * objects to be used in a hand class
      * @param numCards
      * @return
+     * 
+     * @author christian 
      */
     public ArrayList<Card> draw(int numCards) {
         ArrayList<Card> hand = new ArrayList<Card>();
@@ -125,16 +130,20 @@ public class Deck {
     }
 
     /**
-     *
+     * This function returns a card object from a hand object back to the end of an ArrayList object 
      * @param card
+     * 
+     * @author christian 
      */
     public void returnCardToBottom(Card card){
         deckCard.add(card);
     }
 
     /**
-     *
+     * This function will print the current size of the deck and return the deck object
      * @return
+     * 
+     * @author christian 
      */
     public ArrayList<Card> getDeck() {
         System.out.println(deckCard.size());

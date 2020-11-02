@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This file includes the main loop for the project to work 
  */
 package uno_cards;
 
@@ -19,8 +17,8 @@ import javafx.scene.image.Image;
 
 
 /**
- *
- * @author Troll
+ * Main function that calls FXML and FXML controller SS
+ * @author Andrew
  */
 public class FXMain extends Application {
 
