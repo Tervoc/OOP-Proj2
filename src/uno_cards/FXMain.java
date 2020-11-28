@@ -31,12 +31,10 @@ public class FXMain extends Application {
         stage.setTitle("Uno Workout");
         stage.getIcons().add(new Image(FXMain.class.getResourceAsStream("uno.png")));
         stage.setScene(scene);
+        
+
         stage.show();
     }
-
-    public enum cardColors {
-        red, blue, green, yellow
-    };
 
     /**
      * @param args the command line arguments
